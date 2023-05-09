@@ -1,0 +1,194 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+
+OrionLib:MakeNotification({
+
+	Name = "BinbinvoGaming Hub",	Content = "No Content",
+
+	Image = "rbxassetid://4483345998",
+
+	Time = 5
+
+})
+
+
+local Window = OrionLib:MakeWindow({Name = "Title of the library", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+local Tab = Window:MakeTab({
+
+	Name = "Main",
+
+	Icon = "rbxassetid://4483345998",
+
+	PremiumOnly = false
+
+})
+
+local Key = Window:MakeTab({
+
+	Name = "Key Steam",
+
+	Icon = "rbxassetid://4483345998",
+
+	PremiumOnly = false
+
+})
+
+local Vip = Window:MakeTab({
+
+	Name = "ColorPicker",
+
+	Icon = "rbxassetid://4483345998",
+
+	PremiumOnly = false
+
+})
+
+local Section = Tab:AddSection({
+
+	Name = "Avatar Script"
+
+})
+
+Colorpicker:AddColorpicker({
+
+	Name = "Colorpicker",
+
+	Default = Color3.fromRGB(255, 0, 0),
+
+	Callback = function(Value)
+
+		ColorPicker:Set(Color3.fromRGB(255,255,255))
+
+	end	  
+
+})
+
+Key:AddTextbox({
+
+	Name = "Key",
+
+	Default = "",
+
+	TextDisappear = true,
+
+	Callback = function(Value)
+
+	print(Value)
+
+    CurrentKey = Value
+
+	end	  
+
+})
+
+Key:AddButton({
+
+	Name = "Unlock",
+
+	Callback = function()
+
+    print("CurrentKey: ", CurrentKey)
+
+if CurrentKey == Key then
+
+if getgenv().done == false then
+
+	getgenv().done = true
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/BinbinvoGaming/Test/main/Test",true))()
+
+OrionLib:Destroy()
+
+end
+
+else
+
+    notice("Error", "Invalid key")
+
+end
+
+  	end    
+
+})
+
+Tab1:AddToggle({
+
+    Name = "Toggle",
+
+    Default = true,
+
+    Save = true,
+
+    Flag = "toggle"
+
+})
+
+print(OrionLib.Flags["toggle"].Value)
+
+Tab:AddTextbox({
+
+	Name = "Textbox",
+
+	Default = "Welcome To Players",
+
+	TextDisappear = true,
+
+	Callback = function(Value)
+
+		print("Welcome To Players")
+
+	end	  
+
+})
+
+Tab:AddSlider({
+
+	Name = "Slider",
+
+	Min = 0,
+
+	Max = 20,
+
+	Default = 5,
+
+	Color = Color3.fromRGB(255,255,255),
+
+	Increment = 1,
+
+	ValueName = "bananas",
+
+	Callback = function(Value)
+
+                notice("Vcl", "Script Test Trong phan console Co Ghi do ae")
+
+		print("Slider")
+
+	end    
+
+})
+
+Tab:AddButton({
+
+	Name = "Button!",
+
+	Callback = function()
+
+      		print("Sup di anh em Script Test nha")
+
+  	end    
+
+})
+
+Tab:AddToggle({
+
+	Name = "This is a toggle!",
+
+	Default = false,
+
+	Callback = function(Value)
+
+		print(Value)
+
+	end    
+
+})
